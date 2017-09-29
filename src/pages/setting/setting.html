@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      设置
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item-group>
+      <ion-item-divider></ion-item-divider>
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="../../assets/img/avatar.jpg">
+        </ion-avatar>
+        <h2>buctwbzs</h2>
+        <p>一个帅哥哥</p>
+      </ion-item>
+    </ion-item-group>
+
+    <ion-item-group>
+      <ion-item-divider></ion-item-divider>
+      <button ion-item detail-none>版本号:<span item-end>v1.0.0</span> </button>
+      <ion-item detail-none>关于
+        <ion-icon item-end name="arrow-round-forward" [ngStyle]="{'font-size':'1.4em'}"></ion-icon>
+      </ion-item>
+    </ion-item-group>
+
+    <ion-item>
+      <button ion-button outline block round (click)="exit()">退出登录</button>
+    </ion-item>
+  </ion-list>
+</ion-content>

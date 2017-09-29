@@ -1,0 +1,20 @@
+<ion-header [ngStyle]="{'background-color':'block'}">
+  <ion-navbar>
+    <ion-title>
+      <span>已审</span>
+      <ion-badge color="secondary" item-end>{{amount}}</ion-badge>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-refresher>
+    <ion-refresher-content>
+      <ion-list>
+        <ion-item >
+          敬请期待
+        </ion-item>
+      </ion-list>
+    </ion-refresher-content>
+  </ion-refresher>
+</ion-content>

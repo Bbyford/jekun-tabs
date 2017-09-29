@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-title [ngStyle]="{'min-height':'56px'}">
+    <div [ngStyle]="{'display':'flex','justify-content':'space-between'}">
+      <ion-icon name="arrow-back" (click)="goBack()"></ion-icon>
+      <span>待办详情</span>
+      <span [ngStyle]="{'color':'#488AFF'}">{{slaveItems.length }}</span>
+    </div>
+  </ion-title>
+</ion-header>
+
+<ion-content padding>
+  <p id="top"></p>
+  <div class="hash">
+    <ion-icon name="arrow-up" (click)="scrollToTop()"></ion-icon>
+    <ion-icon name="arrow-down" (click)="scrollToBottom()"></ion-icon>
+  </div>
+  <ion-card>
+    <ion-card-content>
+      <p [ngStyle]="{'text-align':'center'}">基本信息</p>
+      <ion-list>
+        <ion-item *ngFor="let x of masterItems.enableEdit;let i = index;">
+          <ion-label>{{x.chinese}}</ion-label>
+          <ion-input type="text" value="{{x.value}}" [(ngModel)]="masterItems['enableEdit'][0]['value']"></ion-input>
+        </ion-item>
+
+        <ion-item *ngFor="let y of masterItems.unableEdit ">
+          <p><span>{{y.chinese}}:</span> {{y.value}}</p>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngFor="let x of slaveItems ;let i = index;">
+    <ion-card-content>
+      <p [ngStyle]="{'text-align':'center'}">明细{{i+1}}</p>
+      <ion-list>
+        <ion-item *ngFor="let y of x.enableEdit;let j = index;">
+          <ion-label>{{y.chinese}}</ion-label>
+          <ion-input type="text" value="{{y.value}}" [(ngModel)]="slaveItems[i]['enableEdit'][j]['value']"></ion-input>
+        </ion-item>
+        <ion-item *ngFor="let y of x.unableEdit ">
+          <p><span>{{y.chinese}}:</span> {{y.value}}</p>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+
+  <button ion-button outline block round large (click)="approval()">准了!</button>
+  <p id="bottom"></p>
+</ion-content>

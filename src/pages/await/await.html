@@ -1,0 +1,21 @@
+<ion-header>
+  <div [ngStyle]="{'min-height':'56px','display':'flex','justify-content':'center','align-items':'center','font-size':'2rem'}">
+    <p>待审 </p>
+  </div>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let item of items" (click)="gotoListPage($event,item)">
+      <div [ngStyle]="{'display':'flex','justify-content':'flex-start'}">
+        <p>{{item.DBFL}}</p>
+        <ion-badge>{{item.TS}}</ion-badge>
+      </div>
+    </ion-item>
+  </ion-list>
+  <ion-card *ngIf="!(items.length>0)">
+    <ion-card-content>
+      当前角色无待办事项
+    </ion-card-content>
+  </ion-card>
+</ion-content>
